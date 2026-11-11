@@ -1,0 +1,17 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Chat icon">
+<mask id="mask0_0_847" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="1" y="1" width="20" height="20">
+<g id="Mask">
+<g id="Vector">
+<path d="M8.11249 11H5.77499L6.69165 9.16667H9.02915L8.11249 11Z" fill="black"/>
+<path d="M11.6875 11H9.34999L10.285 9.16667H12.6042L11.6875 11Z" fill="black"/>
+<path d="M15.2625 11H12.925L13.86 9.16667H16.1792L15.2625 11Z" fill="black"/>
+<path d="M15.6425 1.83369C18.1465 1.8654 20.1667 3.90513 20.1667 6.41667V20.1667L15.8316 18.411C15.6676 18.3446 15.4924 18.3104 15.3154 18.3104H6.41665L6.35739 18.3101C3.8534 18.2783 1.83332 16.2386 1.83332 13.7271V6.41667C1.83332 3.88536 3.88535 1.83333 6.41665 1.83333H15.5833L15.6425 1.83369ZM6.41665 3.66667C4.89787 3.66667 3.66665 4.89788 3.66665 6.41667V13.7271C3.66665 15.2459 4.89787 16.4771 6.41665 16.4771H15.3154C15.7153 16.4771 16.1116 16.5518 16.4839 16.6974L16.5198 16.7117L18.3333 17.4462V6.41667C18.3333 4.89788 17.1021 3.66667 15.5833 3.66667H6.41665Z" fill-rule="evenodd" clip-rule="evenodd" fill="black"/>
+</g>
+</g>
+</mask>
+<g mask="url(#mask0_0_847)">
+<path id="Color" d="M0 0H22V22H0V0Z" fill="#1E1E1E" fill-opacity="0.55"/>
+</g>
+</g>
+</svg>
