@@ -14,8 +14,22 @@
 .timer-screen .home-line{width:108px;height:4px;left:152px;bottom:10px;margin:0}
 .timer-replay{position:absolute;top:680px;left:96px;width:220px;height:48px;border:1px solid #ffffff80;border-radius:16px;color:white;font-size:14px}
 [hidden]{display:none!important}
+
+.timer-ring-control{position:relative;width:160px;height:160px;flex:none}
+.timer-theme-toggle{position:absolute;inset:0;border-radius:50%;z-index:1}
+.timer-theme-toggle:focus-visible{outline:3px solid #8096ff;outline-offset:10px}
+.timer-screen.light{background:#fff;color:#1e1e1e}
+.timer-screen.light .timer-arc{filter:none}
+.timer-screen.light .timer-replay{color:#395afe;border-color:#395afe55}
+.timer-light-track,.timer-light-back,.timer-light-signals{display:none}
+.timer-screen.light .timer-blue-track,.timer-screen.light .timer-blue-back{display:none}
+.timer-screen.light .timer-light-track,.timer-screen.light .timer-light-back{display:block}
+#app.modal-open.timer-light .system-status{color:#1e1e1e}
+#app.modal-open.timer-light .system-status .signals{filter:none}
+#app.timer-light .default-signals{display:none}
+#app.timer-light .timer-light-signals{display:flex}
 @media(prefers-reduced-motion:reduce){.detail,#home{transition:none}.timer-digit{will-change:auto}}
-</style></head><body><main id="viewport"><div id="app"><div class="status system-status"><span>9:30</span><img class="camera" src="assets/home-imgCameraCutout.svg" alt=""><div class="signals"><img src="assets/home-imgWifi.svg" alt=""><img src="assets/home-imgSignal.svg" alt=""><img src="assets/home-imgBattery.svg" alt=""></div></div><section id="home" class="screen" aria-label="Invest home">
+</style></head><body><main id="viewport"><div id="app"><div class="status system-status"><span>9:30</span><img class="camera" src="assets/home-imgCameraCutout.svg" alt=""><div class="signals default-signals"><img src="assets/home-imgWifi.svg" alt=""><img src="assets/home-imgSignal.svg" alt=""><img src="assets/home-imgBattery.svg" alt=""></div><div class="signals timer-light-signals"><img src="assets/timer-light-wifi.svg" alt=""><img src="assets/timer-light-signal.svg" alt=""><img src="assets/timer-light-battery.svg" alt=""></div></div><section id="home" class="screen" aria-label="Invest home">
 <img class="homebg" src="assets/home-imgHeroBgExport.png" alt=""><div class="status-spacer" aria-hidden="true"></div>
 <div class="nav"><button aria-label="Profile" data-demo><img src="assets/home-imgIcons24UserCircle.svg" alt=""></button><div class="loyalty">0<img src="assets/home-imgIcons24LogoGlow.svg" alt=""></div><div style="width:48px"></div></div>
 <div class="balance"><div class="amount"><span>₱</span>5,220</div><div class="gain">+ ₱57 (12.7%) <span>all time</span></div></div>
@@ -28,11 +42,11 @@
 <div class="hero"><div class="ring" role="progressbar" aria-label="Bonus completion" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><img class="track" src="assets/detail-imgEllipse2.svg" alt=""><div class="ring-glow" id="glow"><svg viewBox="0 0 160 160" aria-hidden="true"><defs><linearGradient id="arcLight" gradientUnits="userSpaceOnUse" x1="130" y1="0" x2="0" y2="100"><stop stop-color="#e3e6ff" stop-opacity=".55"/><stop offset="1" stop-color="white"/></linearGradient><filter id="arcBloom" x="-100%" y="-100%" width="300%" height="300%" color-interpolation-filters="sRGB"><feGaussianBlur in="SourceAlpha" stdDeviation="9" result="wide"/><feFlood flood-color="#c5d6ff" flood-opacity=".7"/><feComposite in2="wide" operator="in" result="halo"/><feGaussianBlur in="SourceAlpha" stdDeviation="3" result="near"/><feFlood flood-color="#f1f4ff" flood-opacity=".65"/><feComposite in2="near" operator="in" result="bloom"/><feMerge><feMergeNode in="halo"/><feMergeNode in="bloom"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><path id="progressArc" fill="none" stroke="url(#arcLight)" stroke-width="11" stroke-linecap="round" filter="url(#arcBloom)"/></svg></div><div class="counter"><div id="number" class="number">0%</div><div class="complete">complete</div></div></div><div><h1>Earn a ₱500 bonus</h1><p>Complete 3 tasks to get rewarded</p></div></div>
 <div class="steps"><div class="card"><span class="badge green"><img src="assets/check.svg" alt="Completed"></span><div>Cash in your account with ₱5,000<small>₱5,000 funded</small></div></div><div class="card"><span class="badge green"><img src="assets/check.svg" alt="Completed"></span><div>Buy any stock</div></div><div class="card"><span class="badge" aria-label="In progress"><img src="assets/detail-clock.svg" alt=""></span><div>Don’t withdraw for 30 days<small>Day 11 of 30</small></div></div></div><div class="footer"><button class="primary" id="cashIn">Cash in account</button></div><div class="home-line"></div><div class="toast" id="detailToast">Demo — no funds will be transferred</div></section>
 <section class="screen detail timer-screen" id="timerScreen" aria-label="Data review timer" aria-hidden="true" inert>
-<div class="status-spacer" aria-hidden="true"></div><div class="nav"><button id="closeTimer" aria-label="Back to Invest"><img src="assets/chevron-back.svg" alt=""></button></div>
-<div class="timer-body"><div class="ring" id="timerRing" role="progressbar" aria-label="Data review progress" aria-valuemin="0" aria-valuemax="40" aria-valuenow="0">
-<img class="track" src="assets/detail-imgEllipse2.svg" alt=""><canvas class="timer-arc" id="timerArc" width="624" height="624" aria-hidden="true"></canvas>
+<div class="status-spacer" aria-hidden="true"></div><div class="nav"><button id="closeTimer" aria-label="Back to Invest"><img class="timer-blue-back" src="assets/chevron-back.svg" alt=""><img class="timer-light-back" src="assets/timer-light-back.svg" alt=""></button></div>
+<div class="timer-body"><div class="timer-ring-control"><div class="ring" id="timerRing" role="progressbar" aria-label="Data review progress" aria-valuemin="0" aria-valuemax="40" aria-valuenow="0">
+<img class="track timer-blue-track" src="assets/detail-imgEllipse2.svg" alt=""><img class="track timer-light-track" src="assets/timer-light-track.svg" alt=""><canvas class="timer-arc" id="timerArc" width="624" height="624" aria-hidden="true"></canvas>
 <div class="timer-roller" role="timer" aria-label="40 seconds remaining"><div class="timer-digit" aria-hidden="true"></div><div class="timer-digit" aria-hidden="true"></div><div class="timer-digit" aria-hidden="true"></div><div class="timer-digit" aria-hidden="true"></div></div>
-</div><h1 id="timerHeading">We need up to<br>40 seconds to review<br>your data</h1></div>
+</div><button class="timer-theme-toggle" id="timerThemeToggle" aria-label="Switch to light theme" aria-pressed="false" title="Switch to light theme"></button></div><h1 id="timerHeading">We need up to<br>40 seconds to review<br>your data</h1></div>
 <button class="timer-replay" id="replayTimer" hidden>Replay timer</button><div class="home-line"></div></section>
 </div></main>
 <script>
@@ -43,23 +57,37 @@ function draw(t,textT=t){const progress=87*t;number.textContent=Math.floor(progr
 function openBonus(){cancelAnimationFrame(raf);const token=++run;draw(0);detail.inert=false;detail.classList.add('open');app.classList.add('modal-open');detail.setAttribute('aria-hidden','false');home.inert=true;document.querySelector('#closeBonus').focus({preventScroll:true});const start=performance.now()+380,duration=1800,textDuration=1000;function tick(now){if(token!==run)return;const x=Math.max(0,Math.min(1,(now-start)/duration));const eased=1-Math.pow(1-x,3);const textX=Math.max(0,Math.min(1,(now-start)/textDuration));const textEased=1-Math.pow(1-textX,3);draw(eased,textEased);if(x<1)raf=requestAnimationFrame(tick);}raf=requestAnimationFrame(tick);}
 const timerScreen=document.querySelector('#timerScreen'),timerArc=document.querySelector('#timerArc'),timerRing=document.querySelector('#timerRing'),timerRoller=document.querySelector('.timer-roller'),timerDigits=[...document.querySelectorAll('.timer-digit')],replayTimer=document.querySelector('#replayTimer'),timerHeading=document.querySelector('#timerHeading'),moreTab=document.querySelector('#moreTab'),entry=document.querySelector('#openBonus');
 const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');
-let timerRaf=0,timerRun=0;
+let timerRaf=0,timerRun=0,timerProgress=0,timerTheme='blue';
+const timerThemeToggle=document.querySelector('#timerThemeToggle');
+const timerPalettes={blue:{start:[167,184,255],end:[255,255,255]},light:{start:[164,179,255],end:[57,90,254]}};
+function applyTimerTheme(){
+  const light=timerTheme==='light';
+  timerScreen.classList.toggle('light',light);
+  app.classList.toggle('timer-light',light&&timerScreen.classList.contains('open'));
+  const label=light?'Switch to blue theme':'Switch to light theme';
+  timerThemeToggle.setAttribute('aria-label',label);timerThemeToggle.setAttribute('aria-pressed',light);timerThemeToggle.title=label;
+  // Repaint only the current arc. The running clock and digit animation stay intact.
+  drawTimerArc(timerProgress);
+}
+timerThemeToggle.onclick=()=>{timerTheme=timerTheme==='blue'?'light':'blue';applyTimerTheme();};
 const clamp=value=>Math.max(0,Math.min(1,value));
 function stopTimer(){++timerRun;cancelAnimationFrame(timerRaf);}
 const timerContext=timerArc.getContext('2d');
 function drawTimerArc(progress){
+  timerProgress=clamp(progress);
+  const palette=timerPalettes[timerTheme],startColor=`rgb(${palette.start.join(',')})`,endColor=`rgb(${palette.end.join(',')})`;
   const ctx=timerContext,center=104,radius=74.5,tau=Math.PI*2;
   ctx.setTransform(3,0,0,3,0,0);ctx.clearRect(0,0,208,208);
   if(progress<=0)return;
   const sweep=clamp(progress)*tau,start=-Math.PI/2,gap=tau-sweep;
   // Put the conic seam in the unfilled gap, away from both rounded ends.
   const gradient=ctx.createConicGradient(start-gap/2,center,center);
-  gradient.addColorStop(0,'#a7b8ff');
-  gradient.addColorStop(gap/2/tau,'#a7b8ff');
+  gradient.addColorStop(0,startColor);
+  gradient.addColorStop(gap/2/tau,startColor);
   // Keep the color ramp broad while the first short arc is revealed.
   const gradientSweep=Math.max(sweep,Math.PI/2);
-  gradient.addColorStop((gap/2+gradientSweep)/tau,'#ffffff');
-  gradient.addColorStop(1,'#ffffff');
+  gradient.addColorStop((gap/2+gradientSweep)/tau,endColor);
+  gradient.addColorStop(1,endColor);
   ctx.globalAlpha=clamp(progress*40);ctx.strokeStyle=gradient;ctx.lineWidth=11;ctx.lineCap='round';
   ctx.beginPath();ctx.arc(center,center,radius,start,start+sweep);
   ctx.stroke();
@@ -69,8 +97,8 @@ function drawTimerArc(progress){
     const end=start+sweep,headSpan=Math.PI/6,headStart=end-headSpan;
     const headGradient=ctx.createLinearGradient(center+radius*Math.cos(headStart),center+radius*Math.sin(headStart),center+radius*Math.cos(end),center+radius*Math.sin(end));
     const mix=(sweep-headSpan)/gradientSweep;
-    const color=[167,184,255].map(channel=>Math.round(channel+(255-channel)*mix));
-    headGradient.addColorStop(0,`rgb(${color.join(',')})`);headGradient.addColorStop(1,'#ffffff');
+    const color=palette.start.map((channel,index)=>Math.round(channel+(palette.end[index]-channel)*mix));
+    headGradient.addColorStop(0,`rgb(${color.join(',')})`);headGradient.addColorStop(1,endColor);
     ctx.strokeStyle=headGradient;ctx.beginPath();ctx.arc(center,center,radius,headStart,end);ctx.stroke();
   }
 }
@@ -95,8 +123,8 @@ function startTimer(){
   function tick(now){if(token!==timerRun)return;const finished=drawTimer(now-start);if(finished){timerHeading.textContent='Review complete';replayTimer.hidden=false;}else timerRaf=requestAnimationFrame(tick);}
   timerRaf=requestAnimationFrame(tick);
 }
-function openTimer(){timerScreen.inert=false;timerScreen.classList.add('open');timerScreen.setAttribute('aria-hidden','false');app.classList.add('modal-open');home.inert=true;document.querySelector('#closeTimer').focus({preventScroll:true});startTimer();}
-function closeScreens(restoreFocus=true){++run;cancelAnimationFrame(raf);stopTimer();for(const screen of [detail,timerScreen]){screen.classList.remove('open');screen.setAttribute('aria-hidden','true');screen.inert=true;}app.classList.remove('modal-open');home.inert=false;if(restoreFocus)entry.focus({preventScroll:true});}
+function openTimer(){timerScreen.inert=false;timerScreen.classList.add('open');timerScreen.setAttribute('aria-hidden','false');app.classList.add('modal-open');home.inert=true;document.querySelector('#closeTimer').focus({preventScroll:true});applyTimerTheme();startTimer();}
+function closeScreens(restoreFocus=true){++run;cancelAnimationFrame(raf);stopTimer();for(const screen of [detail,timerScreen]){screen.classList.remove('open');screen.setAttribute('aria-hidden','true');screen.inert=true;}app.classList.remove('modal-open','timer-light');home.inert=false;if(restoreFocus)entry.focus({preventScroll:true});}
 function launchScenario(scenario){closeScreens(false);history.pushState({screen:scenario},'','#'+scenario);scenario==='timer'?openTimer():openBonus();}
 entry.onclick=()=>launchScenario('bonus');
 moreTab.onclick=()=>launchScenario('timer');
