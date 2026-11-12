@@ -8,8 +8,12 @@
 .timer-screen{z-index:3;background:#395afe url('assets/timer-background.png') center/cover no-repeat}
 .timer-body{height:801px;padding:0 32px 120px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:55px}
 .timer-body h1{font:700 30px/34px RetailText;letter-spacing:-.9px;text-align:center;margin:0;width:348px;min-height:102px}
-.timer-roller{position:absolute;top:27px;left:0;width:160px;height:106px;overflow:hidden;mask-image:linear-gradient(transparent,#000 12%,#000 88%,transparent)}
-.timer-digit{position:absolute;top:36px;width:100%;text-align:center;font:700 30px/34px RetailText;letter-spacing:-.9px;font-variant-numeric:tabular-nums;will-change:transform,filter}
+.timer-roller{position:absolute;inset:0;overflow:hidden;mask-image:linear-gradient(transparent,#000 20%,#000 80%,transparent)}
+.timer-digit{position:absolute;top:54px;width:100%;text-align:center;font:600 48px/52px Retail,sans-serif;letter-spacing:-2.7px;font-variant-numeric:tabular-nums;will-change:transform,filter,opacity}
+.timer-arc{position:absolute;inset:0;--sweep:0deg;filter:drop-shadow(0 0 3px #f1f4ffa6) drop-shadow(0 0 9px #c5d6ffb3);pointer-events:none}
+.timer-arc-paint{position:absolute;inset:0;background:conic-gradient(from 0deg,#a7b8ff 0deg,#fff var(--sweep),transparent var(--sweep));mask-image:radial-gradient(circle at center,transparent 68.6px,#000 69.2px,#000 79.5px,transparent 80px)}
+.timer-arc-cap{position:absolute;width:11px;height:11px;border-radius:50%;left:74.5px;top:0;background:#a7b8ff}
+.timer-arc-cap.end{background:white}
 .timer-screen .home-line{width:108px;height:4px;left:152px;bottom:10px;margin:0}
 .timer-replay{position:absolute;top:680px;left:96px;width:220px;height:48px;border:1px solid #ffffff80;border-radius:16px;color:white;font-size:14px}
 [hidden]{display:none!important}
@@ -41,13 +45,13 @@
 <section class="screen detail timer-screen" id="timerScreen" aria-label="Data review timer" aria-hidden="true" inert>
 <div class="status-spacer" aria-hidden="true"></div><div class="nav"><button id="closeTimer" aria-label="Back to Invest"><img src="assets/chevron-back.svg" alt=""></button></div>
 <div class="timer-body"><div class="ring" id="timerRing" role="progressbar" aria-label="Data review progress" aria-valuemin="0" aria-valuemax="40" aria-valuenow="0">
-<img class="track" src="assets/detail-imgEllipse2.svg" alt=""><div class="ring-glow" style="opacity:1"><svg viewBox="0 0 160 160" aria-hidden="true"><defs><linearGradient id="timerLight" gradientUnits="userSpaceOnUse" x1="130" y1="0" x2="0" y2="100"><stop stop-color="#e3e6ff" stop-opacity=".55"/><stop offset="1" stop-color="white"/></linearGradient><filter id="timerBloom" x="-100%" y="-100%" width="300%" height="300%" color-interpolation-filters="sRGB"><feGaussianBlur in="SourceAlpha" stdDeviation="9" result="wide"/><feFlood flood-color="#c5d6ff" flood-opacity=".7"/><feComposite in2="wide" operator="in" result="halo"/><feGaussianBlur in="SourceAlpha" stdDeviation="3" result="near"/><feFlood flood-color="#f1f4ff" flood-opacity=".65"/><feComposite in2="near" operator="in" result="bloom"/><feMerge><feMergeNode in="halo"/><feMergeNode in="bloom"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><circle id="timerArc" cx="80" cy="80" r="74.5" fill="none" stroke="url(#timerLight)" stroke-width="11" stroke-linecap="round" pathLength="100" stroke-dasharray="0 100" transform="rotate(-90 80 80)" filter="url(#timerBloom)"/></svg></div>
+<img class="track" src="assets/detail-imgEllipse2.svg" alt=""><div class="timer-arc" id="timerArc" aria-hidden="true" style="opacity:0"><div class="timer-arc-paint"></div><div class="timer-arc-cap"></div><div class="timer-arc-cap end" id="timerArcEnd"></div></div>
 <div class="timer-roller" role="timer" aria-label="40 seconds remaining"><div class="timer-digit" aria-hidden="true"></div><div class="timer-digit" aria-hidden="true"></div><div class="timer-digit" aria-hidden="true"></div><div class="timer-digit" aria-hidden="true"></div></div>
 </div><h1 id="timerHeading">We need up to<br>40 seconds to review<br>your data</h1></div>
 <button class="timer-replay" id="replayTimer" hidden>Replay timer</button><div class="home-line"></div></section>
 <div class="scenario-overlay" id="scenarioOverlay" hidden><section class="scenario-sheet" role="dialog" aria-modal="true" aria-labelledby="scenarioTitle"><div class="sheet-handle"></div><div class="sheet-heading"><h2 id="scenarioTitle">Сценарии</h2><button class="sheet-close" id="closeScenarios" aria-label="Закрыть">×</button></div>
-<button class="scenario-option" data-scenario="bonus" aria-pressed="true"><span class="badge"><img src="assets/home-imgIcons24GiftFilled.svg" alt=""></span><span><strong>Сценарий 1</strong><small>С бонусом</small></span><span class="selection-dot" aria-hidden="true"></span></button>
-<button class="scenario-option" data-scenario="timer" aria-pressed="false"><span class="badge"><img src="assets/detail-clock.svg" alt=""></span><span><strong>Сценарий 2</strong><small>С таймером · 40 секунд</small></span><span class="selection-dot" aria-hidden="true"></span></button>
+<button class="scenario-option" data-scenario="bonus" aria-pressed="true"><span class="badge"><img src="assets/home-imgIcons24GiftFilled.svg" alt=""></span><span><strong>Bonus</strong><small>С бонусом</small></span><span class="selection-dot" aria-hidden="true"></span></button>
+<button class="scenario-option" data-scenario="timer" aria-pressed="false"><span class="badge"><img src="assets/detail-clock.svg" alt=""></span><span><strong>Timer</strong><small>40 секунд</small></span><span class="selection-dot" aria-hidden="true"></span></button>
 </section></div>
 </div></main>
 <script>
@@ -56,7 +60,7 @@ function fit(){const mobile=innerWidth<=500;const scale=Math.min(innerWidth/412,
 addEventListener('resize',fit);fit();
 function draw(t,textT=t){const progress=87*t;number.textContent=Math.floor(progress)+'%';for(const text of [number,complete]){text.style.filter=`blur(${5*Math.pow(1-textT,1.6)}px)`;text.style.opacity=.5+.5*textT;}glow.style.opacity=t>0?1:0;const angle=progress/100*Math.PI*2;const r=74.5;const x=80+r*Math.sin(angle),y=80-r*Math.cos(angle);document.querySelector('#progressArc').setAttribute('d',t>0?`M 80 5.5 A ${r} ${r} 0 ${angle>Math.PI?1:0} 1 ${x} ${y}`:'');ring.setAttribute('aria-valuenow',Math.floor(progress));}
 function openBonus(){cancelAnimationFrame(raf);const token=++run;draw(0);detail.inert=false;detail.classList.add('open');app.classList.add('modal-open');detail.setAttribute('aria-hidden','false');home.inert=true;document.querySelector('#closeBonus').focus({preventScroll:true});const start=performance.now()+380,duration=1800,textDuration=1000;function tick(now){if(token!==run)return;const x=Math.max(0,Math.min(1,(now-start)/duration));const eased=1-Math.pow(1-x,3);const textX=Math.max(0,Math.min(1,(now-start)/textDuration));const textEased=1-Math.pow(1-textX,3);draw(eased,textEased);if(x<1)raf=requestAnimationFrame(tick);}raf=requestAnimationFrame(tick);}
-const timerScreen=document.querySelector('#timerScreen'),timerArc=document.querySelector('#timerArc'),timerRing=document.querySelector('#timerRing'),timerRoller=document.querySelector('.timer-roller'),timerDigits=[...document.querySelectorAll('.timer-digit')],replayTimer=document.querySelector('#replayTimer'),timerHeading=document.querySelector('#timerHeading'),scenarioOverlay=document.querySelector('#scenarioOverlay'),moreTab=document.querySelector('#moreTab'),entry=document.querySelector('#openBonus');
+const timerScreen=document.querySelector('#timerScreen'),timerArc=document.querySelector('#timerArc'),timerArcEnd=document.querySelector('#timerArcEnd'),timerRing=document.querySelector('#timerRing'),timerRoller=document.querySelector('.timer-roller'),timerDigits=[...document.querySelectorAll('.timer-digit')],replayTimer=document.querySelector('#replayTimer'),timerHeading=document.querySelector('#timerHeading'),scenarioOverlay=document.querySelector('#scenarioOverlay'),moreTab=document.querySelector('#moreTab'),entry=document.querySelector('#openBonus');
 const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');
 let selectedScenario='bonus',timerRaf=0,timerRun=0;
 const clamp=value=>Math.max(0,Math.min(1,value));
@@ -64,8 +68,11 @@ function stopTimer(){++timerRun;cancelAnimationFrame(timerRaf);}
 function drawTimer(elapsed){
   const seconds=Math.max(0,Math.min(40,elapsed/1000)),whole=Math.floor(seconds),remaining=40-whole;
   const fraction=clamp((seconds-whole-.65)/.35),roll=reducedMotion.matches?0:fraction*fraction*(3-2*fraction);
-  timerDigits.forEach((digit,index)=>{const offset=index-1,value=remaining-offset;digit.textContent=value>=0&&value<=40?value:'';digit.style.transform=`translateY(${(offset-roll)*36}px)`;digit.style.filter=`blur(${Math.min(2.5,Math.abs(offset-roll)*2.5)}px)`;});
-  timerArc.setAttribute('stroke-dasharray',`${seconds/40*100} 100`);timerArc.style.opacity=seconds>0?'1':'0';
+  timerDigits.forEach((digit,index)=>{const offset=index-1,value=remaining-offset;digit.textContent=value>=0&&value<=40?value:'';const distance=Math.abs(offset-roll);digit.style.transform=`translateY(${(offset-roll)*56}px)`;digit.style.filter=`blur(${Math.min(8,distance*8)}px)`;digit.style.opacity=clamp(1-distance);});
+  // Stretch the conic gradient from the start to the growing tip of the arc.
+  const sweep=seconds/40*360,angle=sweep*Math.PI/180;
+  timerArc.style.setProperty('--sweep',`${sweep}deg`);timerArc.style.opacity=clamp(sweep/9);
+  timerArcEnd.style.transform=`translate(${74.5*Math.sin(angle)}px,${74.5*(1-Math.cos(angle))}px)`;
   timerRoller.setAttribute('aria-label',`${remaining} seconds remaining`);timerRing.setAttribute('aria-valuenow',whole);
   return seconds>=40;
 }
