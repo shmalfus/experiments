@@ -12,8 +12,7 @@
 .timer-digit{position:absolute;top:54px;width:100%;text-align:center;font:600 48px/52px Retail,sans-serif;letter-spacing:-2.7px;font-variant-numeric:tabular-nums;will-change:transform,filter,opacity}
 .timer-arc{position:absolute;inset:0;--sweep:0deg;filter:drop-shadow(0 0 3px #f1f4ffa6) drop-shadow(0 0 9px #c5d6ffb3);pointer-events:none}
 .timer-arc-paint{position:absolute;inset:0;background:conic-gradient(from 0deg,#a7b8ff 0deg,#fff var(--sweep),transparent var(--sweep));mask-image:radial-gradient(circle at center,transparent 68.6px,#000 69.2px,#000 79.5px,transparent 80px)}
-.timer-arc-cap{position:absolute;width:11px;height:11px;border-radius:50%;left:74.5px;top:0;background:#a7b8ff}
-.timer-arc-cap.end{background:white}
+.timer-arc-cap{position:absolute;width:11px;height:11px;border-radius:50%;left:74.5px;top:0;background:white}
 .timer-screen .home-line{width:108px;height:4px;left:152px;bottom:10px;margin:0}
 .timer-replay{position:absolute;top:680px;left:96px;width:220px;height:48px;border:1px solid #ffffff80;border-radius:16px;color:white;font-size:14px}
 [hidden]{display:none!important}
@@ -45,7 +44,7 @@
 <section class="screen detail timer-screen" id="timerScreen" aria-label="Data review timer" aria-hidden="true" inert>
 <div class="status-spacer" aria-hidden="true"></div><div class="nav"><button id="closeTimer" aria-label="Back to Invest"><img src="assets/chevron-back.svg" alt=""></button></div>
 <div class="timer-body"><div class="ring" id="timerRing" role="progressbar" aria-label="Data review progress" aria-valuemin="0" aria-valuemax="40" aria-valuenow="0">
-<img class="track" src="assets/detail-imgEllipse2.svg" alt=""><div class="timer-arc" id="timerArc" aria-hidden="true" style="opacity:0"><div class="timer-arc-paint"></div><div class="timer-arc-cap"></div><div class="timer-arc-cap end" id="timerArcEnd"></div></div>
+<img class="track" src="assets/detail-imgEllipse2.svg" alt=""><div class="timer-arc" id="timerArc" aria-hidden="true" style="opacity:0"><div class="timer-arc-paint"></div><div class="timer-arc-cap end" id="timerArcEnd"></div></div>
 <div class="timer-roller" role="timer" aria-label="40 seconds remaining"><div class="timer-digit" aria-hidden="true"></div><div class="timer-digit" aria-hidden="true"></div><div class="timer-digit" aria-hidden="true"></div><div class="timer-digit" aria-hidden="true"></div></div>
 </div><h1 id="timerHeading">We need up to<br>40 seconds to review<br>your data</h1></div>
 <button class="timer-replay" id="replayTimer" hidden>Replay timer</button><div class="home-line"></div></section>
@@ -85,17 +84,11 @@ function startTimer(){
 function openTimer(){timerScreen.inert=false;timerScreen.classList.add('open');timerScreen.setAttribute('aria-hidden','false');app.classList.add('modal-open');home.inert=true;document.querySelector('#closeTimer').focus({preventScroll:true});startTimer();}
 function closeScreens(restoreFocus=true){++run;cancelAnimationFrame(raf);stopTimer();for(const screen of [detail,timerScreen]){screen.classList.remove('open');screen.setAttribute('aria-hidden','true');screen.inert=true;}app.classList.remove('modal-open');home.inert=false;if(restoreFocus)entry.focus({preventScroll:true});}
 function setScenario(scenario){
-  selectedScenario=scenario;const isTimer=scenario==='timer';
+  selectedScenario=scenario;
   document.querySelectorAll('[data-scenario]').forEach(button=>button.setAttribute('aria-pressed',button.dataset.scenario===scenario));
-  entry.querySelector('.bonus-title').textContent=isTimer?'Review your data':'₱500 bonus progress';
-  entry.querySelector('.muted').textContent=isTimer?'Up to 40 seconds':'2/3 completed';
-  entry.querySelector('.gift-inner img').src=isTimer?'assets/detail-clock.svg':'assets/home-imgIcons24GiftFilled.svg';
-  entry.querySelector('.gift svg').style.visibility=isTimer?'hidden':'visible';
-  entry.setAttribute('aria-label',isTimer?'Start 40-second data review':'₱500 bonus progress, 2 of 3 completed');
-  document.querySelector('#homeToast').textContent=isTimer?'Demo: tap Review your data':'Demo: tap ₱500 bonus progress';
 }
 function launchScenario(scenario){closeScreens(false);history.pushState({screen:scenario},'','#'+scenario);scenario==='timer'?openTimer():openBonus();}
-entry.onclick=()=>launchScenario(selectedScenario);
+entry.onclick=()=>{setScenario('bonus');launchScenario('bonus');};
 function navigateBack(){if(['#bonus','#timer'].includes(location.hash))history.back();else closeScreens();}
 document.querySelector('#closeBonus').onclick=navigateBack;document.querySelector('#closeTimer').onclick=navigateBack;replayTimer.onclick=startTimer;
 addEventListener('popstate',()=>{closeScreens(false);const scenario=location.hash.slice(1);if(['bonus','timer'].includes(scenario)){setScenario(scenario);scenario==='timer'?openTimer():openBonus();}else entry.focus({preventScroll:true});});
@@ -104,7 +97,7 @@ function closeScenarios(restoreFocus=true){scenarioOverlay.hidden=true;home.iner
 moreTab.onclick=()=>{scenarioOverlay.hidden=false;home.inert=true;moreTab.setAttribute('aria-expanded','true');document.querySelector(`[data-scenario="${selectedScenario}"]`).focus({preventScroll:true});};
 document.querySelector('#closeScenarios').onclick=()=>closeScenarios();
 scenarioOverlay.onclick=event=>{if(event.target===scenarioOverlay)closeScenarios();};
-document.querySelectorAll('[data-scenario]').forEach(button=>button.onclick=()=>{setScenario(button.dataset.scenario);closeScenarios(false);launchScenario(selectedScenario);});
+document.querySelectorAll('[data-scenario]').forEach(button=>button.onclick=()=>{setScenario(button.dataset.scenario);closeScenarios(false);if(selectedScenario==='timer')launchScenario('timer');else closeScreens();});
 addEventListener('keydown',event=>{
   if(!scenarioOverlay.hidden){
     if(event.key==='Escape'){event.preventDefault();closeScenarios();}
