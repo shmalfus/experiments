@@ -12,7 +12,6 @@
 .timer-digit{position:absolute;top:54px;width:100%;text-align:center;font:600 48px/52px Retail,sans-serif;letter-spacing:-2.7px;font-variant-numeric:tabular-nums;will-change:transform,filter,opacity}
 .timer-arc{position:absolute;left:-24px;top:-24px;width:208px;height:208px;filter:drop-shadow(0 0 3px #f1f4ffa6) drop-shadow(0 0 9px #c5d6ffb3);pointer-events:none}
 .timer-screen .home-line{width:108px;height:4px;left:152px;bottom:10px;margin:0}
-.timer-replay{position:absolute;top:680px;left:96px;width:220px;height:48px;border:1px solid #ffffff80;border-radius:16px;color:white;font-size:14px}
 [hidden]{display:none!important}
 
 .timer-ring-control{position:relative;width:160px;height:160px;flex:none}
@@ -20,7 +19,6 @@
 .timer-theme-toggle:focus-visible{outline:3px solid #8096ff;outline-offset:10px}
 .timer-screen.light{background:#fff;color:#1e1e1e}
 .timer-screen.light .timer-arc{filter:none}
-.timer-screen.light .timer-replay{color:#395afe;border-color:#395afe55}
 .timer-light-track,.timer-light-back,.timer-light-signals{display:none}
 .timer-screen.light .timer-blue-track,.timer-screen.light .timer-blue-back{display:none}
 .timer-screen.light .timer-light-track,.timer-screen.light .timer-light-back{display:block}
@@ -47,7 +45,7 @@
 <img class="track timer-blue-track" src="assets/detail-imgEllipse2.svg" alt=""><img class="track timer-light-track" src="assets/timer-light-track.svg" alt=""><canvas class="timer-arc" id="timerArc" width="624" height="624" aria-hidden="true"></canvas>
 <div class="timer-roller" role="timer" aria-label="40 seconds remaining"><div class="timer-digit" aria-hidden="true"></div><div class="timer-digit" aria-hidden="true"></div><div class="timer-digit" aria-hidden="true"></div><div class="timer-digit" aria-hidden="true"></div></div>
 </div><button class="timer-theme-toggle" id="timerThemeToggle" aria-label="Switch to light theme" aria-pressed="false" title="Switch to light theme"></button></div><h1 id="timerHeading">We need up to<br>40 seconds to review<br>your data</h1></div>
-<button class="timer-replay" id="replayTimer" hidden>Replay timer</button><div class="home-line"></div></section>
+<div class="home-line"></div></section>
 </div></main>
 <script>
 const viewport=document.querySelector('#viewport'),app=document.querySelector('#app'),home=document.querySelector('#home'),detail=document.querySelector('#detail'),number=document.querySelector('#number'),complete=document.querySelector('.complete'),glow=document.querySelector('#glow'),ring=document.querySelector('.ring');let raf=0,run=0;
@@ -55,7 +53,7 @@ function fit(){const mobile=innerWidth<=500;const scale=Math.min(innerWidth/412,
 addEventListener('resize',fit);fit();
 function draw(t,textT=t){const progress=87*t;number.textContent=Math.floor(progress)+'%';for(const text of [number,complete]){text.style.filter=`blur(${5*Math.pow(1-textT,1.6)}px)`;text.style.opacity=.5+.5*textT;}glow.style.opacity=t>0?1:0;const angle=progress/100*Math.PI*2;const r=74.5;const x=80+r*Math.sin(angle),y=80-r*Math.cos(angle);document.querySelector('#progressArc').setAttribute('d',t>0?`M 80 5.5 A ${r} ${r} 0 ${angle>Math.PI?1:0} 1 ${x} ${y}`:'');ring.setAttribute('aria-valuenow',Math.floor(progress));}
 function openBonus(){cancelAnimationFrame(raf);const token=++run;draw(0);detail.inert=false;detail.classList.add('open');app.classList.add('modal-open');detail.setAttribute('aria-hidden','false');home.inert=true;document.querySelector('#closeBonus').focus({preventScroll:true});const start=performance.now()+380,duration=1800,textDuration=1000;function tick(now){if(token!==run)return;const x=Math.max(0,Math.min(1,(now-start)/duration));const eased=1-Math.pow(1-x,3);const textX=Math.max(0,Math.min(1,(now-start)/textDuration));const textEased=1-Math.pow(1-textX,3);draw(eased,textEased);if(x<1)raf=requestAnimationFrame(tick);}raf=requestAnimationFrame(tick);}
-const timerScreen=document.querySelector('#timerScreen'),timerArc=document.querySelector('#timerArc'),timerRing=document.querySelector('#timerRing'),timerRoller=document.querySelector('.timer-roller'),timerDigits=[...document.querySelectorAll('.timer-digit')],replayTimer=document.querySelector('#replayTimer'),timerHeading=document.querySelector('#timerHeading'),moreTab=document.querySelector('#moreTab'),entry=document.querySelector('#openBonus');
+const timerScreen=document.querySelector('#timerScreen'),timerArc=document.querySelector('#timerArc'),timerRing=document.querySelector('#timerRing'),timerRoller=document.querySelector('.timer-roller'),timerDigits=[...document.querySelectorAll('.timer-digit')],moreTab=document.querySelector('#moreTab'),entry=document.querySelector('#openBonus');
 const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');
 let timerRaf=0,timerRun=0,timerProgress=0,timerTheme='blue';
 const timerThemeToggle=document.querySelector('#timerThemeToggle');
@@ -118,9 +116,9 @@ function drawTimer(elapsed){
   return seconds>=40;
 }
 function startTimer(){
-  stopTimer();const token=timerRun;replayTimer.hidden=true;timerHeading.innerHTML='We need up to<br>40 seconds to review<br>your data';drawTimer(0);
+  stopTimer();const token=timerRun;drawTimer(0);
   const start=performance.now()+(reducedMotion.matches?0:380);
-  function tick(now){if(token!==timerRun)return;const finished=drawTimer(now-start);if(finished){timerHeading.textContent='Review complete';replayTimer.hidden=false;}else timerRaf=requestAnimationFrame(tick);}
+  function tick(now){if(token!==timerRun)return;const finished=drawTimer(now-start);if(finished){navigateBack();}else timerRaf=requestAnimationFrame(tick);}
   timerRaf=requestAnimationFrame(tick);
 }
 function openTimer(){timerScreen.inert=false;timerScreen.classList.add('open');timerScreen.setAttribute('aria-hidden','false');app.classList.add('modal-open');home.inert=true;document.querySelector('#closeTimer').focus({preventScroll:true});applyTimerTheme();startTimer();}
@@ -129,7 +127,7 @@ function launchScenario(scenario){closeScreens(false);history.pushState({screen:
 entry.onclick=()=>launchScenario('bonus');
 moreTab.onclick=()=>launchScenario('timer');
 function navigateBack(){if(['#bonus','#timer'].includes(location.hash))history.back();else closeScreens();}
-document.querySelector('#closeBonus').onclick=navigateBack;document.querySelector('#closeTimer').onclick=navigateBack;replayTimer.onclick=startTimer;
+document.querySelector('#closeBonus').onclick=navigateBack;document.querySelector('#closeTimer').onclick=navigateBack;
 addEventListener('popstate',()=>{closeScreens(false);const scenario=location.hash.slice(1);if(['bonus','timer'].includes(scenario)){scenario==='timer'?openTimer():openBonus();}else entry.focus({preventScroll:true});});
 if(['#bonus','#timer'].includes(location.hash))history.replaceState({screen:'home'},'',location.pathname+location.search);
 addEventListener('keydown',event=>{if(event.key==='Escape'&&app.classList.contains('modal-open'))navigateBack();});
