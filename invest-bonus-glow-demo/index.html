@@ -12,6 +12,7 @@
 .timer-digit{position:absolute;top:54px;width:100%;text-align:center;font:600 48px/52px Retail,sans-serif;letter-spacing:-2.7px;font-variant-numeric:tabular-nums;will-change:transform,filter,opacity}
 .timer-arc{position:absolute;inset:0;--sweep:0deg;filter:drop-shadow(0 0 3px #f1f4ffa6) drop-shadow(0 0 9px #c5d6ffb3);pointer-events:none}
 .timer-arc-paint{position:absolute;inset:0;background:conic-gradient(from 0deg,#a7b8ff 0deg,#fff var(--sweep),transparent var(--sweep));mask-image:radial-gradient(circle at center,transparent 68.6px,#000 69.2px,#000 79.5px,transparent 80px)}
+.timer-arc::before{content:"";position:absolute;left:74.5px;top:0;width:5.5px;height:11px;border-radius:5.5px 0 0 5.5px;background:#a7b8ff}
 .timer-arc-cap{position:absolute;width:11px;height:11px;border-radius:50%;left:74.5px;top:0;background:white}
 .timer-screen .home-line{width:108px;height:4px;left:152px;bottom:10px;margin:0}
 .timer-replay{position:absolute;top:680px;left:96px;width:220px;height:48px;border:1px solid #ffffff80;border-radius:16px;color:white;font-size:14px}
