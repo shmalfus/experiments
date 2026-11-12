@@ -1,0 +1,12 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="History icon">
+<mask id="mask0_0_302" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="1" y="1" width="20" height="20">
+<g id="Mask">
+<path id="Vector" d="M3.76284 14.3773C3.76284 16.5089 5.49116 18.2371 7.62274 18.2372H20.1667V20.1667H7.62274C4.42534 20.1666 1.83336 17.5747 1.83336 14.3773V1.83333H3.76284V14.3773ZM17.6935 8.09496L13.0885 13.0847L10.9417 10.7055L6.4007 15.5937V13.0132L10.8806 8.06204L13.0885 10.4318L17.6935 5.39031V8.09496Z" fill="black"/>
+</g>
+</mask>
+<g mask="url(#mask0_0_302)">
+<path id="Color" d="M0 0H22V22H0V0Z" fill="#273245" fill-opacity="0.55"/>
+</g>
+</g>
+</svg>

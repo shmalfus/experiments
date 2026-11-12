@@ -1,0 +1,15 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="icons / 24 / question">
+<mask id="mask0_0_753" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="6" y="5" width="8" height="10">
+<g id="Mask">
+<g id="Vector">
+<path d="M10.8333 13.3334V15L9.16667 14.1667V12.5L10.8333 13.3334Z" fill="black"/>
+<path d="M9.99341 5.00003C11.7308 5.00003 13.1392 6.40847 13.1392 8.14586L13.139 8.18651C13.1209 9.61514 12.1505 10.8142 10.8333 11.1782V12.0834L9.16667 11.25V9.37258C9.40269 9.53196 9.68718 9.62503 9.99341 9.62503C10.8103 9.62503 11.4726 8.96277 11.4726 8.14586C11.4726 7.32895 10.8103 6.66669 9.99341 6.66669C9.31359 6.66669 8.74096 7.12532 8.56787 7.75003H6.87227C7.06694 6.19949 8.39009 5.00003 9.99341 5.00003Z" fill="black"/>
+</g>
+</g>
+</mask>
+<g mask="url(#mask0_0_753)">
+<path id="Color" d="M0 0H20V20H0V0Z" fill="#1E1E1E" fill-opacity="0.31"/>
+</g>
+</g>
+</svg>

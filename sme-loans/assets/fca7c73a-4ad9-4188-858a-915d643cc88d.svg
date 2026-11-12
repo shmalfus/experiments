@@ -1,0 +1,12 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="icons / 24 / receipt-lines">
+<mask id="mask0_0_844" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="1" y="1" width="18" height="18">
+<g id="Mask">
+<path id="Vector" d="M18.3333 18.3333L13.3496 16.0368L10 18.3333L6.64551 16.0368L1.66667 18.3333V5.83333C1.66692 3.53233 3.53229 1.66676 5.83333 1.66667H18.3333V18.3333ZM5.83333 3.33333C4.4528 3.33342 3.33359 4.45284 3.33333 5.83333V15.7292L5.94727 14.5239L6.80664 14.1276L7.58708 14.6615L9.99919 16.3127L12.4072 14.6623L13.1877 14.1276L14.047 14.5231L16.6667 15.73V3.33333H5.83333ZM11.7041 10.9139H5.02116L5.87077 9.22607H12.5545L11.7041 10.9139ZM14.1569 7.60173H5.02116L5.87077 5.9139H15.0073L14.1569 7.60173Z" fill="black"/>
+</g>
+</mask>
+<g mask="url(#mask0_0_844)">
+<path id="Color" d="M0 0H20V20H0V0Z" fill="#395AFE"/>
+</g>
+</g>
+</svg>

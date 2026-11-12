@@ -1,0 +1,12 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="icons / 24 / cross">
+<mask id="mask0_0_451" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="4" y="4" width="16" height="16">
+<g id="Mask">
+<path id="Vector" d="M19.7786 5.63599L13.4143 12.0002L19.7786 18.3645L18.3635 19.7786L11.9993 13.4143L5.63599 19.7786L4.22192 18.3645L10.5852 12.0002L4.22192 5.63599L5.63599 4.22192L12.0002 10.5862L18.3645 4.22192L19.7786 5.63599Z" fill="black"/>
+</g>
+</mask>
+<g mask="url(#mask0_0_451)">
+<path id="Color" d="M0 0H24V24H0V0Z" fill="#1E1E1E"/>
+</g>
+</g>
+</svg>

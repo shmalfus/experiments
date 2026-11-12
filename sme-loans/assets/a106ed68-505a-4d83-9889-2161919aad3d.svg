@@ -1,0 +1,15 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="icons / 24 / chevron-back">
+<mask id="mask0_0_361" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="6" y="4" width="9" height="16">
+<g id="Mask">
+<g id="Vector">
+<path d="M14.975 4.00024H12.475L6.47485 12.0002H8.9749L14.975 4.00024Z" fill="black"/>
+<path d="M6.47485 12.0002H8.9749L14.975 20.0001H12.475L6.47485 12.0002Z" fill="black"/>
+</g>
+</g>
+</mask>
+<g mask="url(#mask0_0_361)">
+<path id="Color" d="M0 0H24V24H0V0Z" fill="#1E1E1E"/>
+</g>
+</g>
+</svg>

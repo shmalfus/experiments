@@ -1,0 +1,12 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="icons / 24 / gift">
+<mask id="mask0_0_354" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="2" y="2" width="20" height="20">
+<g id="Mask">
+<path id="Vector" d="M17 5H19.5C20.8807 5 22 6.11929 22 7.5V8.5C22 9.31789 21.6072 10.044 21 10.5001V17C21 19.7614 18.7614 22 16 22H8C5.23858 22 3 19.7614 3 17V10.5001C2.3928 10.044 2 9.31789 2 8.5V7.5C2 6.11929 3.11929 5 4.5 5H7L6 2H9.5585C10.4193 2.00001 11.1836 2.55085 11.4559 3.36753L12 5L12.5441 3.36753C12.8164 2.55085 13.5807 2.00001 14.4415 2H18L17 5ZM5 17C5 18.6569 6.34315 20 8 20H16C17.6569 20 19 18.6569 19 17V11H13V17L11 18V11H5V17ZM4.5 7C4.22386 7 4 7.22386 4 7.5V8.5C4 8.77614 4.22386 9 4.5 9H11V7H4.5ZM13 9H19.5C19.7761 9 20 8.77614 20 8.5V7.5C20 7.22386 19.7761 7 19.5 7H13V9Z" fill-rule="evenodd" clip-rule="evenodd" fill="black"/>
+</g>
+</mask>
+<g mask="url(#mask0_0_354)">
+<path id="Color" d="M0 0H24V24H0V0Z" fill="#273245" fill-opacity="0.55"/>
+</g>
+</g>
+</svg>

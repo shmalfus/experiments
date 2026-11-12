@@ -4,6 +4,8 @@
 
 ## Демо
 
+- [SME Loans — открыть прототип](https://shmalfus.github.io/experiments/sme-loans/)
+
 - [Sand Balance — открыть демо](https://shmalfus.github.io/experiments/sand-balance-demo.html)
 - [Layers Balance — открыть демо](https://shmalfus.github.io/experiments/layers-balance-demo.html)
 

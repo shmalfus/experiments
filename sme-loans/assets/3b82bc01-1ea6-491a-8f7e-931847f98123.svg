@@ -1,0 +1,12 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="icons / 24 / bag-store">
+<mask id="mask0_0_721" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="1" y="2" width="18" height="16">
+<g id="Mask">
+<path id="Vector" d="M7.0988 6.66667H12.8963L11.2451 3.32906L12.6945 2.5L14.7559 6.66667H18.4123L17.7718 13.7109C17.5765 15.8569 15.7771 17.5 13.6222 17.5H6.37777C4.22289 17.5 2.42348 15.8569 2.22819 13.7109L1.58773 6.66667H5.23926L7.30062 2.5L8.75 3.32906L7.0988 6.66667ZM3.88753 13.5596C4.0046 14.8473 5.08476 15.8333 6.37777 15.8333H13.6222C14.9152 15.8333 15.9954 14.8473 16.1125 13.5596L16.5877 8.33333H3.41227L3.88753 13.5596ZM7.5 10.8333V14.1667L5.83333 13.3333V10L7.5 10.8333ZM10.8333 10.8333V14.1667L9.16667 13.3333V10L10.8333 10.8333ZM14.1667 10.8333V14.1667L12.5 13.3333V10L14.1667 10.8333Z" fill="black"/>
+</g>
+</mask>
+<g mask="url(#mask0_0_721)">
+<path id="Color" d="M0 0H20V20H0V0Z" fill="#395AFE"/>
+</g>
+</g>
+</svg>
