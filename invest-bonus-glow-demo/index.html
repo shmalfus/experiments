@@ -77,15 +77,13 @@ function drawTimerArc(progress){
 function drawTimer(elapsed){
   const seconds=Math.max(0,Math.min(40,elapsed/1000)),whole=Math.floor(seconds),remaining=40-whole;
   const fraction=clamp((seconds-whole-.65)/.35),roll=reducedMotion.matches?0:fraction*fraction*(3-2*fraction);
-  const entrance=reducedMotion.matches?1:1-Math.pow(1-clamp(elapsed/450),3);
   timerDigits.forEach((digit,index)=>{
     const offset=index-1,value=remaining-offset,position=offset-roll,distance=Math.abs(position);
-    const reveal=index===1?entrance:1;
-    const scale=reducedMotion.matches?1:(1-.35*clamp(position))*(.65+.35*reveal);
+    const scale=reducedMotion.matches?1:1-.35*clamp(distance);
     digit.textContent=value>=0&&value<=40?value:'';
     digit.style.transform=`translateY(${position*56}px) scale(${scale})`;
-    digit.style.filter=`blur(${8*Math.max(Math.min(1,distance),1-reveal)}px)`;
-    digit.style.opacity=clamp(1-distance)*reveal;
+    digit.style.filter=`blur(${8*Math.min(1,distance)}px)`;
+    digit.style.opacity=clamp(1-distance);
   });
   drawTimerArc(seconds/40);
   timerRoller.setAttribute('aria-label',`${remaining} seconds remaining`);timerRing.setAttribute('aria-valuenow',whole);
