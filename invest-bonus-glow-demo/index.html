@@ -14,18 +14,6 @@
 .timer-screen .home-line{width:108px;height:4px;left:152px;bottom:10px;margin:0}
 .timer-replay{position:absolute;top:680px;left:96px;width:220px;height:48px;border:1px solid #ffffff80;border-radius:16px;color:white;font-size:14px}
 [hidden]{display:none!important}
-.scenario-overlay{position:absolute;inset:0;z-index:20;background:#17244266;display:flex;align-items:flex-end}
-.scenario-sheet{width:100%;padding:12px 16px 32px;border-radius:32px 32px 0 0;background:#f5f6f9;box-shadow:0 -12px 48px #17244222}
-.sheet-handle{width:40px;height:4px;background:#c9cdd5;border-radius:4px;margin:0 auto 20px}
-.sheet-heading{display:flex;align-items:center;justify-content:space-between;margin:0 8px 20px}
-.sheet-heading h2{font:700 24px/28px RetailText,Arial,sans-serif;margin:0;letter-spacing:-.5px}
-.sheet-close{width:36px;height:36px;border-radius:50%;background:#e8ebf1;font:24px/1 Arial}
-.scenario-option{display:flex;align-items:center;gap:12px;width:100%;padding:18px 16px;background:white;border-radius:24px;margin-top:12px;text-align:left;border:2px solid transparent}
-.scenario-option[aria-pressed="true"]{border-color:#395afe;background:#f0f4ff}
-.scenario-option strong{display:block;font-size:16px;font-weight:600;line-height:22px}
-.scenario-option small{display:block;color:#667085;font-size:14px;margin-top:4px}
-.scenario-option .selection-dot{margin-left:auto;width:22px;height:22px;border:2px solid #d2d6df;border-radius:50%;flex:none}
-.scenario-option[aria-pressed="true"] .selection-dot{border:6px solid #395afe}
 @media(prefers-reduced-motion:reduce){.detail,#home{transition:none}.timer-digit{will-change:auto}}
 </style></head><body><main id="viewport"><div id="app"><div class="status system-status"><span>9:30</span><img class="camera" src="assets/home-imgCameraCutout.svg" alt=""><div class="signals"><img src="assets/home-imgWifi.svg" alt=""><img src="assets/home-imgSignal.svg" alt=""><img src="assets/home-imgBattery.svg" alt=""></div></div><section id="home" class="screen" aria-label="Invest home">
 <img class="homebg" src="assets/home-imgHeroBgExport.png" alt=""><div class="status-spacer" aria-hidden="true"></div>
@@ -35,7 +23,7 @@
 <div class="search"><img src="assets/home-imgIcons24Search.svg" alt="">Search stocks</div>
 <button class="bonus" id="openBonus" aria-label="₱500 bonus progress, 2 of 3 completed"><span class="gift"><svg width="48" height="48" viewBox="0 0 48 48" role="img" aria-label="87% complete"><circle cx="24" cy="24" r="23" fill="none" stroke="#e7f0ff" stroke-width="2"/><circle cx="24" cy="24" r="23" fill="none" stroke="#395afe" stroke-width="2" stroke-linecap="round" pathLength="100" stroke-dasharray="87 100" transform="rotate(-90 24 24)"/></svg><span class="gift-inner"><img src="assets/home-imgIcons24GiftFilled.svg" alt=""></span></span><span><span class="bonus-title">₱500 bonus progress</span><span class="muted" style="display:block">2/3 completed</span></span><img class="chevron" src="assets/home-imgIcons24ChevronForwardS2.svg" alt=""></button>
 <div class="portfolio"><h2>My portfolio</h2><div class="muted">₱220 in stocks • ₱5,000 in cash</div><div class="stock"><div class="stock-logo"><img src="assets/flag.svg" alt="Philippines"></div>Philippine peso<span class="price">₱5,000</span></div><div class="stock"><div class="stock-logo"><img src="assets/apollo.png" style="width:82px;height:82px;max-width:none" alt="Apollo Global"></div>Apollo Global<span class="price">₱220</span></div></div>
-<nav class="bottom-nav"><div class="tabs"><button class="tab" data-demo><img src="assets/home-imgHomeIcon.svg" alt="">Home</button><button class="tab active"><img src="assets/home-imgIcons24ChartLine.svg" alt="">Invest</button><button class="tab" data-demo><img src="assets/home-imgChatIcon.svg" alt="">Chat</button><button class="tab" id="moreTab" aria-haspopup="dialog" aria-expanded="false"><img src="assets/home-imgMoreIcon.svg" alt="">More</button></div><div class="home-line"></div></nav><div class="toast" id="homeToast">Demo: tap ₱500 bonus progress</div></section>
+<nav class="bottom-nav"><div class="tabs"><button class="tab" data-demo><img src="assets/home-imgHomeIcon.svg" alt="">Home</button><button class="tab active"><img src="assets/home-imgIcons24ChartLine.svg" alt="">Invest</button><button class="tab" data-demo><img src="assets/home-imgChatIcon.svg" alt="">Chat</button><button class="tab" id="moreTab"><img src="assets/home-imgMoreIcon.svg" alt="">More</button></div><div class="home-line"></div></nav><div class="toast" id="homeToast">Demo: tap ₱500 bonus progress</div></section>
 <section class="screen detail" id="detail" aria-label="Bonus progress" aria-hidden="true" inert><div class="backdrop"><img src="assets/detail-background.png" alt=""></div><div class="status-spacer" aria-hidden="true"></div><div class="nav"><button id="closeBonus" aria-label="Back to Invest"><img src="assets/chevron-back.svg" alt=""></button><div></div></div>
 <div class="hero"><div class="ring" role="progressbar" aria-label="Bonus completion" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><img class="track" src="assets/detail-imgEllipse2.svg" alt=""><div class="ring-glow" id="glow"><svg viewBox="0 0 160 160" aria-hidden="true"><defs><linearGradient id="arcLight" gradientUnits="userSpaceOnUse" x1="130" y1="0" x2="0" y2="100"><stop stop-color="#e3e6ff" stop-opacity=".55"/><stop offset="1" stop-color="white"/></linearGradient><filter id="arcBloom" x="-100%" y="-100%" width="300%" height="300%" color-interpolation-filters="sRGB"><feGaussianBlur in="SourceAlpha" stdDeviation="9" result="wide"/><feFlood flood-color="#c5d6ff" flood-opacity=".7"/><feComposite in2="wide" operator="in" result="halo"/><feGaussianBlur in="SourceAlpha" stdDeviation="3" result="near"/><feFlood flood-color="#f1f4ff" flood-opacity=".65"/><feComposite in2="near" operator="in" result="bloom"/><feMerge><feMergeNode in="halo"/><feMergeNode in="bloom"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><path id="progressArc" fill="none" stroke="url(#arcLight)" stroke-width="11" stroke-linecap="round" filter="url(#arcBloom)"/></svg></div><div class="counter"><div id="number" class="number">0%</div><div class="complete">complete</div></div></div><div><h1>Earn a ₱500 bonus</h1><p>Complete 3 tasks to get rewarded</p></div></div>
 <div class="steps"><div class="card"><span class="badge green"><img src="assets/check.svg" alt="Completed"></span><div>Cash in your account with ₱5,000<small>₱5,000 funded</small></div></div><div class="card"><span class="badge green"><img src="assets/check.svg" alt="Completed"></span><div>Buy any stock</div></div><div class="card"><span class="badge" aria-label="In progress"><img src="assets/detail-clock.svg" alt=""></span><div>Don’t withdraw for 30 days<small>Day 11 of 30</small></div></div></div><div class="footer"><button class="primary" id="cashIn">Cash in account</button></div><div class="home-line"></div><div class="toast" id="detailToast">Demo — no funds will be transferred</div></section>
@@ -46,10 +34,6 @@
 <div class="timer-roller" role="timer" aria-label="40 seconds remaining"><div class="timer-digit" aria-hidden="true"></div><div class="timer-digit" aria-hidden="true"></div><div class="timer-digit" aria-hidden="true"></div><div class="timer-digit" aria-hidden="true"></div></div>
 </div><h1 id="timerHeading">We need up to<br>40 seconds to review<br>your data</h1></div>
 <button class="timer-replay" id="replayTimer" hidden>Replay timer</button><div class="home-line"></div></section>
-<div class="scenario-overlay" id="scenarioOverlay" hidden><section class="scenario-sheet" role="dialog" aria-modal="true" aria-labelledby="scenarioTitle"><div class="sheet-handle"></div><div class="sheet-heading"><h2 id="scenarioTitle">Сценарии</h2><button class="sheet-close" id="closeScenarios" aria-label="Закрыть">×</button></div>
-<button class="scenario-option" data-scenario="bonus" aria-pressed="true"><span class="badge"><img src="assets/home-imgIcons24GiftFilled.svg" alt=""></span><span><strong>Bonus</strong><small>С бонусом</small></span><span class="selection-dot" aria-hidden="true"></span></button>
-<button class="scenario-option" data-scenario="timer" aria-pressed="false"><span class="badge"><img src="assets/detail-clock.svg" alt=""></span><span><strong>Timer</strong><small>40 секунд</small></span><span class="selection-dot" aria-hidden="true"></span></button>
-</section></div>
 </div></main>
 <script>
 const viewport=document.querySelector('#viewport'),app=document.querySelector('#app'),home=document.querySelector('#home'),detail=document.querySelector('#detail'),number=document.querySelector('#number'),complete=document.querySelector('.complete'),glow=document.querySelector('#glow'),ring=document.querySelector('.ring');let raf=0,run=0;
@@ -57,9 +41,9 @@ function fit(){const mobile=innerWidth<=500;const scale=Math.min(innerWidth/412,
 addEventListener('resize',fit);fit();
 function draw(t,textT=t){const progress=87*t;number.textContent=Math.floor(progress)+'%';for(const text of [number,complete]){text.style.filter=`blur(${5*Math.pow(1-textT,1.6)}px)`;text.style.opacity=.5+.5*textT;}glow.style.opacity=t>0?1:0;const angle=progress/100*Math.PI*2;const r=74.5;const x=80+r*Math.sin(angle),y=80-r*Math.cos(angle);document.querySelector('#progressArc').setAttribute('d',t>0?`M 80 5.5 A ${r} ${r} 0 ${angle>Math.PI?1:0} 1 ${x} ${y}`:'');ring.setAttribute('aria-valuenow',Math.floor(progress));}
 function openBonus(){cancelAnimationFrame(raf);const token=++run;draw(0);detail.inert=false;detail.classList.add('open');app.classList.add('modal-open');detail.setAttribute('aria-hidden','false');home.inert=true;document.querySelector('#closeBonus').focus({preventScroll:true});const start=performance.now()+380,duration=1800,textDuration=1000;function tick(now){if(token!==run)return;const x=Math.max(0,Math.min(1,(now-start)/duration));const eased=1-Math.pow(1-x,3);const textX=Math.max(0,Math.min(1,(now-start)/textDuration));const textEased=1-Math.pow(1-textX,3);draw(eased,textEased);if(x<1)raf=requestAnimationFrame(tick);}raf=requestAnimationFrame(tick);}
-const timerScreen=document.querySelector('#timerScreen'),timerArc=document.querySelector('#timerArc'),timerRing=document.querySelector('#timerRing'),timerRoller=document.querySelector('.timer-roller'),timerDigits=[...document.querySelectorAll('.timer-digit')],replayTimer=document.querySelector('#replayTimer'),timerHeading=document.querySelector('#timerHeading'),scenarioOverlay=document.querySelector('#scenarioOverlay'),moreTab=document.querySelector('#moreTab'),entry=document.querySelector('#openBonus');
+const timerScreen=document.querySelector('#timerScreen'),timerArc=document.querySelector('#timerArc'),timerRing=document.querySelector('#timerRing'),timerRoller=document.querySelector('.timer-roller'),timerDigits=[...document.querySelectorAll('.timer-digit')],replayTimer=document.querySelector('#replayTimer'),timerHeading=document.querySelector('#timerHeading'),moreTab=document.querySelector('#moreTab'),entry=document.querySelector('#openBonus');
 const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');
-let selectedScenario='bonus',timerRaf=0,timerRun=0;
+let timerRaf=0,timerRun=0;
 const clamp=value=>Math.max(0,Math.min(1,value));
 function stopTimer(){++timerRun;cancelAnimationFrame(timerRaf);}
 const timerContext=timerArc.getContext('2d');
@@ -78,8 +62,17 @@ function drawTimerArc(progress){
   gradient.addColorStop(1,'#ffffff');
   ctx.globalAlpha=clamp(progress*40);ctx.strokeStyle=gradient;ctx.lineWidth=11;ctx.lineCap='round';
   ctx.beginPath();ctx.arc(center,center,radius,start,start+sweep);
-  if(progress>=1)ctx.closePath();
   ctx.stroke();
+  // Once the ends meet, keep the conic seam outside the rounded head.
+  // Redraw a continuous terminal segment, never an isolated circular cap.
+  if(gap<2*Math.asin(5.5/radius)){
+    const end=start+sweep,headSpan=Math.PI/6,headStart=end-headSpan;
+    const headGradient=ctx.createLinearGradient(center+radius*Math.cos(headStart),center+radius*Math.sin(headStart),center+radius*Math.cos(end),center+radius*Math.sin(end));
+    const mix=(sweep-headSpan)/gradientSweep;
+    const color=[167,184,255].map(channel=>Math.round(channel+(255-channel)*mix));
+    headGradient.addColorStop(0,`rgb(${color.join(',')})`);headGradient.addColorStop(1,'#ffffff');
+    ctx.strokeStyle=headGradient;ctx.beginPath();ctx.arc(center,center,radius,headStart,end);ctx.stroke();
+  }
 }
 function drawTimer(elapsed){
   const seconds=Math.max(0,Math.min(40,elapsed/1000)),whole=Math.floor(seconds),remaining=40-whole;
@@ -97,26 +90,13 @@ function startTimer(){
 }
 function openTimer(){timerScreen.inert=false;timerScreen.classList.add('open');timerScreen.setAttribute('aria-hidden','false');app.classList.add('modal-open');home.inert=true;document.querySelector('#closeTimer').focus({preventScroll:true});startTimer();}
 function closeScreens(restoreFocus=true){++run;cancelAnimationFrame(raf);stopTimer();for(const screen of [detail,timerScreen]){screen.classList.remove('open');screen.setAttribute('aria-hidden','true');screen.inert=true;}app.classList.remove('modal-open');home.inert=false;if(restoreFocus)entry.focus({preventScroll:true});}
-function setScenario(scenario){
-  selectedScenario=scenario;
-  document.querySelectorAll('[data-scenario]').forEach(button=>button.setAttribute('aria-pressed',button.dataset.scenario===scenario));
-}
 function launchScenario(scenario){closeScreens(false);history.pushState({screen:scenario},'','#'+scenario);scenario==='timer'?openTimer():openBonus();}
-entry.onclick=()=>{setScenario('bonus');launchScenario('bonus');};
+entry.onclick=()=>launchScenario('bonus');
+moreTab.onclick=()=>launchScenario('timer');
 function navigateBack(){if(['#bonus','#timer'].includes(location.hash))history.back();else closeScreens();}
 document.querySelector('#closeBonus').onclick=navigateBack;document.querySelector('#closeTimer').onclick=navigateBack;replayTimer.onclick=startTimer;
-addEventListener('popstate',()=>{closeScreens(false);const scenario=location.hash.slice(1);if(['bonus','timer'].includes(scenario)){setScenario(scenario);scenario==='timer'?openTimer():openBonus();}else entry.focus({preventScroll:true});});
+addEventListener('popstate',()=>{closeScreens(false);const scenario=location.hash.slice(1);if(['bonus','timer'].includes(scenario)){scenario==='timer'?openTimer():openBonus();}else entry.focus({preventScroll:true});});
 if(['#bonus','#timer'].includes(location.hash))history.replaceState({screen:'home'},'',location.pathname+location.search);
-function closeScenarios(restoreFocus=true){scenarioOverlay.hidden=true;home.inert=false;moreTab.setAttribute('aria-expanded','false');if(restoreFocus)moreTab.focus({preventScroll:true});}
-moreTab.onclick=()=>{scenarioOverlay.hidden=false;home.inert=true;moreTab.setAttribute('aria-expanded','true');document.querySelector(`[data-scenario="${selectedScenario}"]`).focus({preventScroll:true});};
-document.querySelector('#closeScenarios').onclick=()=>closeScenarios();
-scenarioOverlay.onclick=event=>{if(event.target===scenarioOverlay)closeScenarios();};
-document.querySelectorAll('[data-scenario]').forEach(button=>button.onclick=()=>{setScenario(button.dataset.scenario);closeScenarios(false);if(selectedScenario==='timer')launchScenario('timer');else closeScreens();});
-addEventListener('keydown',event=>{
-  if(!scenarioOverlay.hidden){
-    if(event.key==='Escape'){event.preventDefault();closeScenarios();}
-    if(event.key==='Tab'){const buttons=[...scenarioOverlay.querySelectorAll('button')],first=buttons[0],last=buttons[buttons.length-1];if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus();}else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus();}}
-  }else if(event.key==='Escape'&&app.classList.contains('modal-open'))navigateBack();
-});
+addEventListener('keydown',event=>{if(event.key==='Escape'&&app.classList.contains('modal-open'))navigateBack();});
 let toastTimer;function toast(id){clearTimeout(toastTimer);document.querySelectorAll('.toast').forEach(e=>e.classList.remove('show'));const e=document.getElementById(id);e.classList.add('show');toastTimer=setTimeout(()=>e.classList.remove('show'),2200);}document.querySelectorAll('[data-demo]').forEach(b=>b.onclick=()=>toast('homeToast'));document.querySelector('#cashIn').onclick=()=>toast('detailToast');
 </script></body></html>
